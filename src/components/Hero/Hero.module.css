@@ -3,6 +3,7 @@
   width: 100vw;
   display: flex;
   align-items: center;
+  padding-left: 15vw;
 }
 
 .letterAnimate {
