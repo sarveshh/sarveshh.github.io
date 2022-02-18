@@ -1,0 +1,18 @@
+.hero {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+}
+
+.letterAnimate {
+  font-size: 6rem;
+}
+
+.typewriter {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 0 0.5rem #000;
+  animation: typewriter 1s steps(30) 1s 1 normal both;
+}

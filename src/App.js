@@ -3,6 +3,7 @@ import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import Sidebar from './components/Sidebar/Sidebar';
 import SVGComponent from './components/Preloader/SvgComponent';
+import Hero from './components/Hero/Hero';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <div className="App">
           <Navbar toggle={toggle} />
           <Sidebar isopen={isopen} toggle={toggle} />
+          <Hero />
         </div>
       ) : (
         <div>

@@ -7,7 +7,7 @@
   position: fixed;
   width: 100%;
   background: transparent;
-  background: black;
+  background: transparent;
 }
 
 .navbar.active {
