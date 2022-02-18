@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import Navbar from './components/Navbar/Navbar';
+import Sidebar from './components/Sidebar/Sidebar';
 import SVGComponent from './components/Preloader/SvgComponent';
+
+
 function App() {
   const [loading, setLoading] = useState(true)
 
@@ -8,11 +12,17 @@ function App() {
     setTimeout(() => setLoading(false), 500)
   }, [])
 
+  const [isopen, setisopen] = useState(false)
+  const toggle = () => {
+    setisopen(!isopen)
+  }
+
   return (
     <>
       {loading === false ? (
-        <div className="App" style={{ height: "100vh", backgroundColor: "black" }}>
-          Learn react
+        <div className="App">
+          <Navbar toggle={toggle} />
+          <Sidebar isopen={isopen} toggle={toggle} />
         </div>
       ) : (
         <div>
