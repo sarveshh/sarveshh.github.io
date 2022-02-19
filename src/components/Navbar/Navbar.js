@@ -27,7 +27,7 @@ const Navbar = ({ toggle, onClick }) => {
             </div>
             <div className="menu-items">
                 {navbarItems.map((item, index) => (
-                    <a className="link" to={item.link} key={index}>
+                    <a href="/" className="link" to={item.link} key={index}>
                         {item.title}
                     </a>
                 ))}

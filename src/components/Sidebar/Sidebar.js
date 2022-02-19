@@ -21,7 +21,7 @@ const Sidebar = ({ isopen, toggle }) => {
             <div className="sidebar-wrapper">
                 <div className="sidebar-menu">
                     {navbarItems.map((item, index) => (
-                        <a to={item.link} key={index} className="sidebar-links">
+                        <a href="/" to={item.link} key={index} className="sidebar-links">
                             {item.title}
                         </a>
                     ))}

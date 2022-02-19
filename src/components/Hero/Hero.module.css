@@ -6,14 +6,18 @@
   padding-left: 15vw;
 }
 
-.letterAnimate {
-  font-size: 6rem;
-}
-
 .typewriter {
   font-size: 3rem;
   font-weight: bold;
   color: #fff;
   text-shadow: 0 0 0.5rem #000;
   animation: typewriter 1s steps(30) 1s 1 normal both;
+}
+
+.letterAnimate {
+  font-size: 6rem;
+}
+.letterAnimate:hover {
+  color: red;
+  transform: translate(scale(1.5));
 }

@@ -4,7 +4,14 @@ import Navbar from './components/Navbar/Navbar';
 import Sidebar from './components/Sidebar/Sidebar';
 import SVGComponent from './components/Preloader/SvgComponent';
 import Hero from './components/Hero/Hero';
-
+import { Route, Routes } from 'react-router-dom'
+import About from './components/About/About';
+import Contact from './components/Contact/Contact';
+import Lab from './components/Lab/Lab';
+import Projects from './components/Projects/Projects';
+import Resume from './components/Resume/Resume';
+import Skills from './components/Skills/Skills';
+import Work from './components/Work/Work';
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -24,7 +31,16 @@ function App() {
         <div className="App">
           <Navbar toggle={toggle} />
           <Sidebar isopen={isopen} toggle={toggle} />
-          <Hero />
+          <Routes>
+            <Route path="/" element={<Hero />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/lab" element={<Lab />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/resume" element={<Resume />} />
+            <Route path="/skills" element={<Skills />} />
+            <Route path="/work" element={<Work />} />
+          </Routes>
         </div>
       ) : (
         <div>

@@ -7,19 +7,19 @@ const Hero = () => {
 		<>
 			<div className={classes.hero}>
 				<div className={classes.heroIntro}>
-					<span class={classes.letterAnimate}>H</span>
-					<span class={classes.letterAnimate}>i</span>
-					<span class={classes.letterAnimate}>,</span><br />
-					<span class={classes.letterAnimate}>I</span>
-					<span class={classes.letterAnimate}>'</span>
-					<span class={classes.letterAnimate}>m</span>&emsp; &nbsp;
-					<span class={classes.letterAnimate}>S</span>
-					<span class={classes.letterAnimate}>a</span>
-					<span class={classes.letterAnimate}>r</span>
-					<span class={classes.letterAnimate}>v</span>
-					<span class={classes.letterAnimate}>e</span>
-					<span class={classes.letterAnimate}>s</span>
-					<span class={classes.letterAnimate}>h</span>
+					<span className={classes.letterAnimate}> H</span>
+					<span className={classes.letterAnimate}>i</span>
+					<span className={classes.letterAnimate}>,</span><br />
+					<span className={classes.letterAnimate}>I</span>
+					<span className={classes.letterAnimate}>'</span>
+					<span className={classes.letterAnimate}>m</span>&emsp; &nbsp;
+					<span className={classes.letterAnimate}>S</span>
+					<span className={classes.letterAnimate}>a</span>
+					<span className={classes.letterAnimate}>r</span>
+					<span className={classes.letterAnimate}>v</span>
+					<span className={classes.letterAnimate}>e</span>
+					<span className={classes.letterAnimate}>s</span>
+					<span className={classes.letterAnimate}>h</span>
 					<div className={classes.typewriter}>
 						<Typewriter
 							options={{
