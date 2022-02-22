@@ -2,6 +2,7 @@ import React from 'react'
 import './Sidebar.css'
 import navbarItems from '../Navbar/NavbarItems'
 import { FaTimes } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 
 const Sidebar = ({ isopen, toggle }) => {
 
@@ -12,7 +13,6 @@ const Sidebar = ({ isopen, toggle }) => {
         opacityClasses.push('opacity-off')
     }
 
-
     return (
         <div className={opacityClasses.join(' ')} isopen={isopen.toString()} onClick={toggle}>
             <div className="icon">
@@ -21,9 +21,9 @@ const Sidebar = ({ isopen, toggle }) => {
             <div className="sidebar-wrapper">
                 <div className="sidebar-menu">
                     {navbarItems.map((item, index) => (
-                        <a href="/" to={item.link} key={index} className="sidebar-links">
+                        <Link to={item.link} key={index} className="sidebar-links">
                             {item.title}
-                        </a>
+                        </Link>
                     ))}
                 </div>
             </div>

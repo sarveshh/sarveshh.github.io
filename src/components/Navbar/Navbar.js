@@ -3,6 +3,7 @@ import "./Navbar.css";
 import navbarItems from "./NavbarItems";
 import { FaBars } from "react-icons/fa";
 import LogoSvg from "../../assets/LogoSvg";
+import { NavLink } from 'react-router-dom'
 
 const Navbar = ({ toggle, onClick }) => {
     const [navbar, setNavbar] = useState(false);
@@ -27,9 +28,9 @@ const Navbar = ({ toggle, onClick }) => {
             </div>
             <div className="menu-items">
                 {navbarItems.map((item, index) => (
-                    <a href="/" className="link" to={item.link} key={index}>
+                    <NavLink className="link" to={item.link} key={index}>
                         {item.title}
-                    </a>
+                    </NavLink>
                 ))}
             </div>
             <div className="icons">
