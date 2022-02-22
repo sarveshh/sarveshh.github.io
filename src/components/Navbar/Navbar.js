@@ -23,9 +23,9 @@ const Navbar = ({ toggle, onClick }) => {
 
     return (
         <nav className={navbar ? "navbar active" : "navbar"}>
-            <div className="link">
+            <NavLink className="link" to="/">
                 <LogoSvg />
-            </div>
+            </NavLink>
             <div className="menu-items">
                 {navbarItems.map((item, index) => (
                     <NavLink className="link" to={item.link} key={index}>

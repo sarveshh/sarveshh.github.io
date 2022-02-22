@@ -43,7 +43,7 @@ export class MapContainer extends Component {
 					}
 				}
 				containerStyle={{
-					width: '50%', height: '100%'
+					width: '100%', height: '100%'
 				}}
 			>
 				<Marker
@@ -66,5 +66,4 @@ export class MapContainer extends Component {
 
 MapContainer = GoogleApiWrapper({
 	apiKey: 'dsauhu'
-	//  'AIzaSyAoSOST6nQjpi1Xn_bBIWJQCX6_jKASWPU'
 })(MapContainer);
