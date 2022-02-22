@@ -1,47 +1,40 @@
-import React, { useEffect } from 'react'
-import './Contact.css'
-import { MapContainer } from './MapContainer'
+import React, { useState, useEffect } from "react";
+import "./Contact.css";
+import { MapContainer } from "./MapContainer";
 
 const Contact = () => {
-
-	const inputs = document.querySelectorAll(".input");
-
-	function focusFunc() {
-		let parent = this.parentNode;
-		parent.classList.add("focus");
-	}
-
-	function blurFunc() {
-		let parent = this.parentNode;
-		if (this.value == "") {
-			parent.classList.remove("focus");
-		}
-	}
+	const [name, setName] = useState("");
+	const [email, setEmail] = useState("");
+	const [message, setMessage] = useState("");
 
 	useEffect(() => {
+		const inputs = document.querySelectorAll(".input");
+
+		function focusFunc() {
+			let parent = this.parentNode;
+			parent.classList.add("focus");
+		}
+
+		function blurFunc() {
+			let parent = this.parentNode;
+			if (this.value == "") {
+				parent.classList.remove("focus");
+			}
+		}
 		inputs.forEach((input) => {
 			input.addEventListener("focus", focusFunc);
 			input.addEventListener("blur", blurFunc);
 		});
-	})
+	}, []);
 
+	const handleSubmit = (event) => {
+		event.preventDefault();
+		alert(
+			`The name you entered was: ${name}, the email you entered was: ${email}, and the message you entered was: ${message}`
+		);
+	};
 
 	return (
-		// <div className={classes.contactMe}>
-		// 	<div className={classes.contactWrapper}>
-		// 		<h1 className={classes.contactHeader}>Say hello</h1>
-		// 		<div className={classes.contactForm}>
-		// 			<form>
-		// 				<input name='fullName' placeholder='Full Name' />
-		// 			</form>
-		// 		</div>
-		// 	</div>
-		// 	<div className={classes.contactMap}>
-		// 		<MapContainer />
-		// 	
-		// 	</div>
-		// </div>
-
 		<div className="container">
 			<div className="form">
 				<div className="contact-info">
@@ -49,33 +42,52 @@ const Contact = () => {
 						<MapContainer />
 					</div>
 				</div>
-
 				<div className="contact-form">
 					<span className="circle one"></span>
 					<span className="circle two"></span>
-					<form action="index.html" autoComplete="off">
+					<form autoComplete="off" onSubmit={handleSubmit}>
 						<h3 className="title">Let's get in touch</h3>
 						<div className="input-container">
-							<input type="text" name="name" className="input" />
-							<label >Username</label>
-							<span>Username</span>
+							<input
+								autoComplete="none"
+								type="text"
+								name="name"
+								value={name}
+								className="input"
+								onChange={(e) => setName(e.target.value)}
+							/>
+							<label>Full Name</label>
+							<span>Full Name</span>
 						</div>
 						<div className="input-container">
-							<input type="email" name="email" className="input" />
+							<input
+								type="email"
+								value={email}
+								autoComplete="off"
+								name="email"
+								className="input"
+								onChange={(e) => setEmail(e.target.value)}
+							/>
 							<label>Email</label>
 							<span>Email</span>
 						</div>
 						<div className="input-container textarea">
-							<textarea name="message" className="input"></textarea>
+							<textarea
+								value={message}
+								onChange={(e) => setMessage(e.target.value)}
+								name="message"
+								autoComplete="off"
+								className="input"
+							></textarea>
 							<label>Message</label>
 							<span>Message</span>
 						</div>
-						<input type="submit" value="Send" className="btn" />
+						<input type="submit" value="Send Message" className="btn" />
 					</form>
 				</div>
 			</div>
 		</div>
-	)
-}
+	);
+};
 
-export default Contact
+export default Contact;

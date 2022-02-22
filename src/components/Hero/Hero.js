@@ -1,6 +1,6 @@
-import React from 'react'
-import classes from './Hero.module.css'
-import Typewriter from 'typewriter-effect';
+import React from "react";
+import classes from "./Hero.module.css";
+import Typewriter from "typewriter-effect";
 
 const Hero = () => {
 	return (
@@ -9,7 +9,8 @@ const Hero = () => {
 				<div className={classes.heroIntro}>
 					<span className={classes.letterAnimate}> H</span>
 					<span className={classes.letterAnimate}>i</span>
-					<span className={classes.letterAnimate}>,</span><br />
+					<span className={classes.letterAnimate}>,</span>
+					<br />
 					<span className={classes.letterAnimate}>I</span>
 					<span className={classes.letterAnimate}>'</span>
 					<span className={classes.letterAnimate}>m</span>&emsp; &nbsp;
@@ -27,26 +28,27 @@ const Hero = () => {
 								loop: true,
 							}}
 							onInit={(typewriter) => {
-								typewriter.pauseFor(1500)
-									.typeString('Full Stack Web Developer')
+								typewriter
+									.pauseFor(1500)
+									.typeString("Full Stack Web Developer")
 									.pauseFor(500)
 									.deleteChars(24)
 									.pauseFor(500)
-									.typeString('ui/ux Designer')
+									.typeString("ui/ux Designer")
 									.deleteChars(14)
 									.pauseFor(500)
-									.typeString('Native iOS Developer')
+									.typeString("Native iOS Developer")
 									.deleteChars(13)
 									.pauseFor(500)
-									.typeString('Android Developer')
+									.typeString("Android Developer")
 									.deleteChars(24)
 									.pauseFor(500)
-									.typeString('Open Source Contributor')
+									.typeString("Open Source Contributor")
 									.deleteChars(23)
 									.pauseFor(500)
 									.deleteAll()
 									.callFunction(() => {
-										console.log('All strings were deleted');
+										console.log("All strings were deleted");
 									})
 									.start();
 							}}
@@ -55,7 +57,7 @@ const Hero = () => {
 				</div>
 			</div>
 		</>
-	)
-}
+	);
+};
 
-export default Hero
+export default Hero;
