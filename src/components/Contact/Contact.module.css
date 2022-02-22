@@ -1,0 +1,23 @@
+.contactMe {
+  padding-top: 70px;
+  display: flex;
+  align-items: center;
+  width: 95vw;
+  justify-content: flex-start;
+}
+.contactWrapper {
+  width: 50vw;
+  float: left;
+}
+.contactMap {
+  width: 50vw;
+  float: right;
+}
+.contactHeader {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+.contactIntro {
+  word-wrap: break-word;
+}
