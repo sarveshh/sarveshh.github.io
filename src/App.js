@@ -1,30 +1,26 @@
-import React, { useState, useEffect, Suspense } from 'react';
-import './App.css';
-import Navbar from './components/Navbar/Navbar';
-import Sidebar from './components/Sidebar/Sidebar';
-import SVGComponent from './components/Preloader/SvgComponent';
-import Hero from './components/Hero/Hero';
-import { Route, Routes } from 'react-router-dom'
-import About from './components/About/About';
-import Contact from './components/Contact/Contact';
-import Projects from './components/Projects/Projects';
-import Resume from './components/Resume/Resume';
-import Skills from './components/Skills/Skills';
-import Work from './components/Work/Work';
-
-const Lab = React.lazy(() => import('./components/Lab/Lab'))
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import Navbar from "./components/Navbar/Navbar";
+import Sidebar from "./components/Sidebar/Sidebar";
+import SVGComponent from "./components/Preloader/SvgComponent";
+import Hero from "./components/Hero/Hero";
+import { Route, Routes } from "react-router-dom";
+import About from "./components/About/About";
+import Contact from "./components/Contact/Contact";
+import Projects from "./components/Projects/Projects";
+import Resume from "./components/Resume/Resume";
 
 function App() {
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 500)
-  }, [])
+    setTimeout(() => setLoading(false), 500);
+  }, []);
 
-  const [isopen, setisopen] = useState(false)
+  const [isopen, setisopen] = useState(false);
   const toggle = () => {
-    setisopen(!isopen)
-  }
+    setisopen(!isopen);
+  };
 
   return (
     <>
@@ -36,15 +32,8 @@ function App() {
             <Route path="/" element={<Hero />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/lab" render={() => (
-              <Suspense fallback={<div>Loading...</div>}>
-                <Lab />
-              </Suspense>
-            )} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/resume" element={<Resume />} />
-            <Route path="/skills" element={<Skills />} />
-            <Route path="/work" element={<Work />} />
           </Routes>
         </div>
       ) : (

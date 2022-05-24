@@ -1,35 +1,28 @@
-import React from 'react'
-import './Sidebar.css'
-import navbarItems from '../Navbar/NavbarItems'
-import { FaTimes } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import React from "react";
+import navbarItems from "../Navbar/NavbarItems";
+import {
+  SidebarContainer,
+  CloseIconContainer,
+  CloseIcon,
+  SidebarMenu,
+  SidebarLinks,
+} from "./SidebarStyles";
 
 const Sidebar = ({ isopen, toggle }) => {
+  return (
+    <SidebarContainer isopen={isopen.toString()} onClick={toggle}>
+      <CloseIconContainer>
+        <CloseIcon onClick={toggle} />
+      </CloseIconContainer>
+      <SidebarMenu className="sidebar-menu">
+        {navbarItems.map((item, index) => (
+          <SidebarLinks to={item.link} key={index} className="sidebar-links">
+            {item.title}
+          </SidebarLinks>
+        ))}
+      </SidebarMenu>
+    </SidebarContainer>
+  );
+};
 
-    let opacityClasses = ['sidebar-container'];
-    if (isopen) {
-        opacityClasses.push('opacity-on')
-    } else {
-        opacityClasses.push('opacity-off')
-    }
-
-    return (
-        <div className={opacityClasses.join(' ')} isopen={isopen.toString()} onClick={toggle}>
-            <div className="icon">
-                <FaTimes className="close-icon" onClick={toggle} />
-            </div>
-            <div className="sidebar-wrapper">
-                <div className="sidebar-menu">
-                    {navbarItems.map((item, index) => (
-                        <Link to={item.link} key={index} className="sidebar-links">
-                            {item.title}
-                        </Link>
-                    ))}
-                </div>
-            </div>
-        </div>
-
-    )
-}
-
-export default Sidebar
+export default Sidebar;
