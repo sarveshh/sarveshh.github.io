@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import navbarItems from "./NavbarItems";
 import { FaBars } from "react-icons/fa";
 import LogoSvg from "../../assets/LogoSvg";
-import { Nav, Link, MobileMenuIcon } from "./NavbarStyles";
-import { Box } from "@mui/material";
+import { Nav, Link, MobileMenuIcon, NavMenu } from "./NavbarStyles";
 
 const Navbar = ({ toggle }) => {
   const [navbar, setNavbar] = useState(false);
@@ -21,13 +20,13 @@ const Navbar = ({ toggle }) => {
       <Link to="/">
         <LogoSvg />
       </Link>
-      <Box display="flex" alignItems="center">
+      <NavMenu>
         {navbarItems.map((item, index) => (
           <Link to={item.link} key={index}>
             {item.title}
           </Link>
         ))}
-      </Box>
+      </NavMenu>
 
       <MobileMenuIcon>
         <FaBars onClick={toggle} />

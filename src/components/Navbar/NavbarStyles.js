@@ -26,12 +26,20 @@ export const Link = styled(NavLink)(({ theme }) => ({
   },
 }));
 
+export const NavMenu = styled("nav")(({ theme }) => ({
+  display: "flex",
+  alignItems: "center",
+  "@media (max-width:768px)": {
+    display: "none",
+  },
+}));
+
 export const MobileMenuIcon = styled("div")(({ theme }) => ({
   display: "none",
 
   "@media (max-width:768px)": {
     display: "block",
-    color: "white",
+    color: "black",
     display: "flex",
     alignItems: "center",
     fontSize: "4vh",
