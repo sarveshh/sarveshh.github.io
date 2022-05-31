@@ -1,46 +1,70 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { ProjectContainer, ProjectSection, ProjectPaper } from "./ProjectStyle";
 import { Typography, Box } from "@mui/material";
 import { ProjectsData } from "./ProjectsData";
 import hoverEffect from "hover-effect";
+import { motion, useTransform, useViewportScroll } from "framer-motion";
 
 const Projects = () => {
-  const container = useRef();
+  let wrappers = useRef({});
+  ProjectsData.map(
+    (project) => (wrappers.current[project.id - 1] = React.createRef())
+  );
 
   useEffect(() => {
-    new hoverEffect({
-      parent: container.current,
-      intensity: 0.3,
-      image1: "https://picsum.photos/400/600",
-      image2: "https://picsum.photos/420/620",
-      displacementImage:
-        "https://raw.githubusercontent.com/robin-dela/hover-effect/master/images/fluid.jpg",
-    });
-  }, [container]);
+    ProjectsData.map(
+      (project) =>
+        new hoverEffect({
+          parent: wrappers.current[project.id - 1].current,
+          intensity: 0.3,
+          imagesRatio: 1080 / 1920,
+          image1: project.img,
+          image2: project.img2,
+          displacementImage: project.distort,
+        })
+    );
+  }, []);
+
   return (
-    <ProjectContainer>
-      <ProjectSection>
-        <Typography variant="h2" color="#808080">
-          Projects
-        </Typography>
-        <Box>
-          <ProjectPaper elevation={5}>
-            <Box p={1} display="flex" justifyContent="space-around">
-              <div
-                className="parent"
-                id="imgContainer"
-                ref={container}
-                style={{
-                  width: 400,
-                  height: 600,
-                }}
-              />
-              <Box>Text Material</Box>
+    <>
+      <ProjectContainer>
+        <ProjectSection>
+          <Typography variant="h2" color="#808080">
+            Projects
+          </Typography>
+          <Box>
+            <Box p={1} display="flex" flexDirection="column">
+              {ProjectsData.map((project) => (
+                <ProjectPaper elevation={5}>
+                  <Box key={project.id} className={`list__${project.id}`}>
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <div
+                        // onMouseLeave={onCursor}
+                        // onMouseEnter={() => onCursor("projectHovered")}
+                        className="wrapper"
+                        style={{
+                          position: "relative",
+                          marginTop: "5rem",
+                          height: "12rem",
+                          width: "3 4rem",
+                          boxShadow: "rgba(0, 0, 0, 0.5) 0px 50px 100px",
+                        }}
+                        ref={wrappers.current[project.id - 1]}
+                      ></div>
+                    </a>
+                    <Box>{project.name}</Box>
+                  </Box>
+                </ProjectPaper>
+              ))}
             </Box>
-          </ProjectPaper>
-        </Box>
-      </ProjectSection>
-    </ProjectContainer>
+          </Box>
+        </ProjectSection>
+      </ProjectContainer>
+    </>
   );
 };
 
