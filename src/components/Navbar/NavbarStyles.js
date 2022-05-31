@@ -7,7 +7,7 @@ export const Nav = styled("nav")(({ theme, navbar }) => ({
   justifyContent: "space-between",
   padding: "1rem 2rem",
   zIndex: 100,
-  position: "fixed",
+  position: "relative",
   width: "100%",
   background: navbar === "true" ? "red" : "transparent",
 }));

@@ -4,7 +4,7 @@ export const AboutContainer = styled("div")(({ theme }) => ({
   display: "flex",
   position: "absolute",
   justifyContent: "space-around",
-  margin: "70px",
+  margin: "30px 100px",
 }));
 
 export const AboutMeSection = styled("div")(({ theme }) => ({
