@@ -56,7 +56,7 @@ const Projects = () => {
                         ref={wrappers.current[project.id - 1]}
                       ></div>
                     </a>
-                    <Box>{project.name}</Box>
+                    <Box>{project.nameR}</Box>
                   </Box>
                 </ProjectPaper>
               ))}
