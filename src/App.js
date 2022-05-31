@@ -5,10 +5,10 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import SVGComponent from "./components/Preloader/SvgComponent";
 import Hero from "./components/Hero/Hero";
 import { Route, Routes } from "react-router-dom";
-import About from "./components/About/About";
-import Contact from "./components/Contact/Contact";
-import Projects from "./components/Projects/Projects";
-import Resume from "./components/Resume/Resume";
+import About from "./pages/About/About";
+import Contact from "./pages/Contact/Contact";
+import Projects from "./pages/Projects/Projects";
+import Resume from "./pages/Resume/Resume";
 
 function App() {
   const [loading, setLoading] = useState(true);
