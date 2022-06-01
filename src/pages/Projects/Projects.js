@@ -1,9 +1,9 @@
 import React, { useRef, useEffect, useState } from "react";
 import { ProjectContainer, ProjectSection, ProjectPaper } from "./ProjectStyle";
-import { Typography, Box } from "@mui/material";
+import { Typography, Box, Button } from "@mui/material";
 import { ProjectsData } from "./ProjectsData";
 import hoverEffect from "hover-effect";
-import { motion, useTransform, useViewportScroll } from "framer-motion";
+import { IconContext } from "react-icons/lib";
 
 const Projects = () => {
   let wrappers = useRef({});
@@ -16,8 +16,7 @@ const Projects = () => {
       (project) =>
         new hoverEffect({
           parent: wrappers.current[project.id - 1].current,
-          intensity: 0.3,
-          imagesRatio: 1080 / 1920,
+          imagesRatio: 2245 / 1587,
           image1: project.img,
           image2: project.img2,
           displacementImage: project.distort,
@@ -32,35 +31,81 @@ const Projects = () => {
           <Typography variant="h2" color="#808080">
             Projects
           </Typography>
-          <Box>
-            <Box p={1} display="flex" flexDirection="column">
-              {ProjectsData.map((project) => (
+          <Box
+            display="flex"
+            flexDirection="column"
+            style={{
+              transform: "translate(20%, 0%)",
+            }}
+          >
+            {ProjectsData.map((project, index) => (
+              <Box
+                key={project.id}
+                className={`list__${project.id}`}
+                margin="25px"
+              >
+                <Box display="flex" justifyContent="space-between">
+                  <Typography variant="h1" fontSize="55px" position="relative">
+                    0{project.id}
+                  </Typography>
+                  <Typography variant="h1" fontSize="55px" position="relative">
+                    {project.date}
+                  </Typography>
+                </Box>
                 <ProjectPaper elevation={5}>
-                  <Box key={project.id} className={`list__${project.id}`}>
+                  <Box display="flex">
                     <a
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <div
+                      <Box
                         // onMouseLeave={onCursor}
                         // onMouseEnter={() => onCursor("projectHovered")}
                         className="wrapper"
                         style={{
                           position: "relative",
-                          marginTop: "5rem",
-                          height: "12rem",
-                          width: "3 4rem",
-                          boxShadow: "rgba(0, 0, 0, 0.5) 0px 50px 100px",
+                          height: "500px",
+                          width: "350px",
+                          borderRadius: "5.3rem",
+                          overflow: "hidden",
                         }}
                         ref={wrappers.current[project.id - 1]}
-                      ></div>
+                      />
                     </a>
-                    <Box>{project.nameR}</Box>
+                    <Box
+                      margin="25px 40px"
+                      display="flex"
+                      flexDirection="column"
+                    >
+                      <Typography>{project.title}</Typography>
+                      <Typography>{project.description}</Typography>
+                      <Box display="flex" top="50%" position="absolute">
+                        <Button>Github</Button>
+                        <Button>Demo</Button>
+                      </Box>
+                      <Box display="flex" bottom="25%" position="absolute">
+                        {project.tech.map((techs) => (
+                          <>
+                            <IconContext.Provider
+                              value={{
+                                style: {
+                                  width: "35px",
+                                  height: "35px",
+                                  marginRight: "15px",
+                                },
+                              }}
+                            >
+                              {techs.icon}
+                            </IconContext.Provider>
+                          </>
+                        ))}
+                      </Box>
+                    </Box>
                   </Box>
                 </ProjectPaper>
-              ))}
-            </Box>
+              </Box>
+            ))}
           </Box>
         </ProjectSection>
       </ProjectContainer>

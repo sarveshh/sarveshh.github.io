@@ -4,7 +4,6 @@ import { Typography, Paper, Box } from "@mui/material";
 export const ProjectContainer = styled("div")(({ theme }) => ({
   display: "flex",
   position: "absolute",
-  justifyContent: "space-around",
   margin: "30px 100px",
 }));
 
