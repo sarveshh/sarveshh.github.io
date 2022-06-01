@@ -15,7 +15,6 @@ const globalStyle = {
 const app = (
   <BrowserRouter>
     <GlobalStyles styles={globalStyle} />
-
     <App />
   </BrowserRouter>
 );
