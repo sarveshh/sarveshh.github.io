@@ -6,6 +6,7 @@ import {
 } from "./HeroStyles";
 import { Box } from "@mui/material";
 import Typewriter from "typewriter-effect";
+import CharacterSVG from "../../assets/characterSvg";
 
 const Hero = () => {
   return (
@@ -61,6 +62,9 @@ const Hero = () => {
               }}
             />
           </TypewriterComponent>
+        </Box>
+        <Box>
+          <CharacterSVG />
         </Box>
       </HeroContainer>
     </>
