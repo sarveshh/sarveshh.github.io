@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Sidebar from "./components/Sidebar/Sidebar";
 import SVGComponent from "./components/Preloader/SvgComponent";
@@ -8,9 +8,12 @@ import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 import Projects from "./pages/Projects/Projects";
 import Resume from "./pages/Resume/Resume";
+import DotRing from "./components/DotRing/DotRing";
+import { MouseContext } from "./context/mouse-context";
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const { cursorType, cursorChangeHandler } = useContext(MouseContext);
 
   useEffect(() => {
     setTimeout(() => setLoading(false), 500);
@@ -25,8 +28,14 @@ function App() {
     <>
       {loading === false ? (
         <div className="App">
-          <Navbar toggle={toggle} />
+          <div
+            onMouseEnter={() => cursorChangeHandler("hovered")}
+            onMouseLeave={() => cursorChangeHandler("")}
+          >
+            <Navbar toggle={toggle} />
+          </div>
           <Sidebar isopen={isopen} toggle={toggle} />
+          <DotRing />
           <Routes>
             <Route path="/" element={<Hero />} />
             <Route path="/about" element={<About />} />
