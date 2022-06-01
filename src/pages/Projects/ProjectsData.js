@@ -10,7 +10,7 @@ import {
   SiNintendogamecube,
 } from "react-icons/si";
 import { FaReact, FaSpotify, FaNodeJs } from "react-icons/fa";
-import { IoStatsChartSharp } from "react-icons/io";
+import { BsBarChartFill } from "react-icons/bs";
 import { MdOutlineSettingsVoice } from "react-icons/md";
 
 export const ProjectsData = [
@@ -31,7 +31,7 @@ export const ProjectsData = [
       { name: "Redux", icon: <SiRedux /> },
       { name: "Material UI", icon: <SiMaterialui /> },
       { name: "Spotify API", icon: <FaSpotify /> },
-      { name: "ApexCharts", icon: <IoStatsChartSharp /> },
+      { name: "ApexCharts", icon: <BsBarChartFill /> },
     ],
   },
   {
@@ -52,7 +52,7 @@ export const ProjectsData = [
       { name: "Firebase", icon: <SiFirebase /> },
       { name: "Material UI", icon: <SiMaterialui /> },
       { name: "Voice Recognition", icon: <MdOutlineSettingsVoice /> },
-      { name: "Chart JS", icon: <IoStatsChartSharp /> },
+      { name: "Chart JS", icon: <BsBarChartFill /> },
     ],
   },
   {
@@ -71,7 +71,7 @@ export const ProjectsData = [
       { name: "Node Js", icon: <FaNodeJs /> },
       { name: "Express Js", icon: <SiExpress /> },
       { name: "Voice Recognition", icon: <MdOutlineSettingsVoice /> },
-      { name: "Chart JS", icon: <IoStatsChartSharp /> },
+      { name: "Chart JS", icon: <BsBarChartFill /> },
       { name: "Tesseract Js", icon: <SiNintendogamecube /> },
     ],
   },

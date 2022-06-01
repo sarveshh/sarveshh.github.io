@@ -31,13 +31,7 @@ const Projects = () => {
           <Typography variant="h2" color="#808080">
             Projects
           </Typography>
-          <Box
-            display="flex"
-            flexDirection="column"
-            style={{
-              transform: "translate(20%, 0%)",
-            }}
-          >
+          <Box display="flex" flexDirection="column">
             {ProjectsData.map((project, index) => (
               <Box
                 key={project.id}
@@ -80,11 +74,27 @@ const Projects = () => {
                     >
                       <Typography>{project.title}</Typography>
                       <Typography>{project.description}</Typography>
-                      <Box display="flex" top="50%" position="absolute">
-                        <Button>Github</Button>
-                        <Button>Demo</Button>
+                      <Box display="flex">
+                        <Button>
+                          <a
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            Github
+                          </a>
+                        </Button>
+                        <Button>
+                          <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            Demo
+                          </a>
+                        </Button>
                       </Box>
-                      <Box display="flex" bottom="25%" position="absolute">
+                      <Box display="flex" alignItems="center">
                         {project.tech.map((techs) => (
                           <>
                             <IconContext.Provider
