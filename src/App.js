@@ -10,6 +10,29 @@ import Projects from "./pages/Projects/Projects";
 import Resume from "./pages/Resume/Resume";
 import DotRing from "./components/DotRing/DotRing";
 import { MouseContext } from "./context/mouse-context";
+import { createTheme, colors, ThemeProvider } from "@mui/material";
+import { CssBaseline } from "@mui/material";
+
+const theme = createTheme({
+  status: {
+    danger: "#e53e3e",
+  },
+  palette: {
+    mode: "light",
+    secondary: {
+      main: colors.orange[500],
+    },
+    neutral: {
+      main: colors.grey[500],
+      darker: colors.grey[700],
+    },
+    customRibRed: {
+      main: colors.red[400],
+      superDark: colors.red[800],
+      superLight: colors.red[100],
+    },
+  },
+});
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -26,29 +49,32 @@ function App() {
 
   return (
     <>
-      {loading === false ? (
-        <div className="App">
-          <div
-            onMouseEnter={() => cursorChangeHandler("hovered")}
-            onMouseLeave={() => cursorChangeHandler("")}
-          >
-            <Navbar toggle={toggle} />
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        {loading === false ? (
+          <div className="App">
+            <div
+              onMouseEnter={() => cursorChangeHandler("hovered")}
+              onMouseLeave={() => cursorChangeHandler("")}
+            >
+              <Navbar toggle={toggle} />
+            </div>
+            <Sidebar isopen={isopen} toggle={toggle} />
+            <DotRing />
+            <Routes>
+              <Route path="/" element={<Hero />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/resume" element={<Resume />} />
+            </Routes>
           </div>
-          <Sidebar isopen={isopen} toggle={toggle} />
-          <DotRing />
-          <Routes>
-            <Route path="/" element={<Hero />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/resume" element={<Resume />} />
-          </Routes>
-        </div>
-      ) : (
-        <div>
-          <SVGComponent />
-        </div>
-      )}
+        ) : (
+          <div>
+            <SVGComponent />
+          </div>
+        )}
+      </ThemeProvider>
     </>
   );
 }

@@ -1,7 +1,7 @@
 import { styled } from "@mui/material/styles";
 
 export const HeroContainer = styled("div")(({ theme }) => ({
-  height: "85vh",
+  height: "calc(100vh - 70px)",
   width: "100vw",
   display: "flex",
   position: "absolute",
