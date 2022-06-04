@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Sidebar from "./components/Sidebar/Sidebar";
 import SVGComponent from "./components/Preloader/SvgComponent";
@@ -44,10 +44,10 @@ function App() {
         <CssBaseline />
         {loading === false ? (
           <div className="App">
+            <Cursor />
             <Navbar toggle={toggle} />
             <Sidebar isopen={isopen} toggle={toggle} />
             <NightModeIcon theme={"light"} />
-            <Cursor />
             <Routes>
               <Route path="/" element={<Hero />} />
               <Route path="/about" element={<About />} />

@@ -150,7 +150,7 @@ function Cursor() {
   return (
     <>
       <CursorDotOutline ref={cursorDotOutline} id="cursor-dot-outline" />
-      <div ref={cursorDot} id="cursor-dot" />
+      <CursorDot ref={cursorDot} id="cursor-dot" />
     </>
   );
 }
