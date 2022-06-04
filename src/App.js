@@ -10,31 +10,26 @@ import Projects from "./pages/Projects/Projects";
 import Resume from "./pages/Resume/Resume";
 import DotRing from "./components/DotRing/DotRing";
 import { MouseContext } from "./context/mouse-context";
-import { createTheme, colors, ThemeProvider } from "@mui/material";
+import { createTheme, colors, ThemeProvider, Button } from "@mui/material";
 import { CssBaseline } from "@mui/material";
 
-const theme = createTheme({
-  status: {
-    danger: "#e53e3e",
-  },
-  palette: {
-    mode: "light",
-    secondary: {
-      main: colors.orange[500],
-    },
-    neutral: {
-      main: colors.grey[500],
-      darker: colors.grey[700],
-    },
-    customRibRed: {
-      main: colors.red[400],
-      superDark: colors.red[800],
-      superLight: colors.red[100],
-    },
-  },
-});
-
 function App() {
+  const [themepalette, setThemePalette] = useState("light");
+  const themeChangeHandler = () => {
+    if (themepalette === "light") {
+      setThemePalette("dark");
+    } else {
+      setThemePalette("light");
+    }
+  };
+  const theme = createTheme({
+    status: {
+      danger: "#e53e3e",
+    },
+    palette: {
+      mode: themepalette,
+    },
+  });
   const [loading, setLoading] = useState(true);
   const { cursorType, cursorChangeHandler } = useContext(MouseContext);
 
@@ -58,6 +53,7 @@ function App() {
               onMouseLeave={() => cursorChangeHandler("")}
             >
               <Navbar toggle={toggle} />
+              <button onClick={themeChangeHandler}>Click</button>
             </div>
             <Sidebar isopen={isopen} toggle={toggle} />
             <DotRing />

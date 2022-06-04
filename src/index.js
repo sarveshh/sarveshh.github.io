@@ -12,6 +12,10 @@ const globalStyle = {
     boxSizing: "border-box",
     cursor: "none",
   },
+
+  // Add theme transition classes
+  // transition: "all 750ms !important",
+  // transitionDelay: "0 !important",
 };
 
 const app = (
