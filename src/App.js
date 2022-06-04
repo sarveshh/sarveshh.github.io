@@ -13,22 +13,16 @@ import { MouseContext } from "./context/mouse-context";
 import { createTheme, colors, ThemeProvider, Button } from "@mui/material";
 import { CssBaseline } from "@mui/material";
 import NightModeIcon from "./components/NightModeIcon/NightModeIcon";
+import { useSelector } from "react-redux";
 
 function App() {
-  const [themepalette, setThemePalette] = useState("light");
-  const themeChangeHandler = () => {
-    if (themepalette === "light") {
-      setThemePalette("dark");
-    } else {
-      setThemePalette("light");
-    }
-  };
+  const themeValue = useSelector((state) => state.nightmode.darkmode);
   const theme = createTheme({
     status: {
       danger: "#e53e3e",
     },
     palette: {
-      mode: themepalette,
+      mode: themeValue,
       background: {
         // default: themepalette === "light" ? "#fafafa" : "#1a1a1a",
       },
@@ -58,7 +52,7 @@ function App() {
             >
               <Navbar toggle={toggle} />
               <Sidebar isopen={isopen} toggle={toggle} />
-              <NightModeIcon theme={themepalette} />
+              <NightModeIcon theme={"light"} />
             </div>
             <DotRing />
             <Routes>

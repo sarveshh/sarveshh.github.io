@@ -4,6 +4,8 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import GlobalStyles from "@mui/material/GlobalStyles";
 import MouseContextProvider from "./context/mouse-context";
+import { Provider } from "react-redux";
+import store from "./store/store";
 
 const globalStyle = {
   "*": {
@@ -20,10 +22,12 @@ const globalStyle = {
 
 const app = (
   <BrowserRouter>
-    <MouseContextProvider>
-      <GlobalStyles styles={globalStyle} />
-      <App />
-    </MouseContextProvider>
+    <Provider store={store}>
+      <MouseContextProvider>
+        <GlobalStyles styles={globalStyle} />
+        <App />
+      </MouseContextProvider>
+    </Provider>
   </BrowserRouter>
 );
 

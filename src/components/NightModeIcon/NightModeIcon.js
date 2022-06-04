@@ -1,13 +1,27 @@
 import React from "react";
 import { MdLightMode, MdDarkMode } from "react-icons/md";
-import { Box } from "@mui/material";
 import { IconContext } from "react-icons/lib";
-import { NightModeContainer } from "./NightModeIconStyles";
+import { Box } from "@mui/material";
+import { toggleMode } from "../../store/nightmodeSlice";
+import { useDispatch } from "react-redux";
+import { styled } from "@mui/material/styles";
+
+const NightModeContainer = styled("nav")(({ theme }) => ({
+  zIndex: "10000",
+  position: "fixed",
+  top: "87vh",
+  left: "4vw",
+}));
 
 const NightModeIcon = (theme) => {
+  const dispatch = useDispatch();
+  const themeChangeHandler = () => {
+    dispatch(toggleMode());
+  };
+
   return (
     <>
-      <NightModeContainer>
+      <NightModeContainer onClick={themeChangeHandler}>
         <IconContext.Provider
           value={{
             style: {

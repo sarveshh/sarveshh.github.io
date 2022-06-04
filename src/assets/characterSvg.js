@@ -3,6 +3,11 @@ import { gsap } from "gsap";
 
 const CharacterSVG = (props) => {
   useEffect(() => {
+    gsap.config({
+      force3D: false,
+      nullTargetWarn: false,
+      trialWarn: false,
+    });
     const meTl = gsap.timeline({
       onComplete: addMouseEvent,
       delay: 1,
