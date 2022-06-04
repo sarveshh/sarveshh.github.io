@@ -8,11 +8,10 @@ import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 import Projects from "./pages/Projects/Projects";
 import Resume from "./pages/Resume/Resume";
-import DotRing from "./components/DotRing/DotRing";
-import { MouseContext } from "./context/mouse-context";
 import { createTheme, ThemeProvider } from "@mui/material";
 import { CssBaseline } from "@mui/material";
 import NightModeIcon from "./components/NightModeIcon/NightModeIcon";
+import Cursor from "./components/Cursor/Cursor";
 import { useSelector } from "react-redux";
 
 function App() {
@@ -29,7 +28,6 @@ function App() {
     },
   });
   const [loading, setLoading] = useState(true);
-  const { cursorChangeHandler } = useContext(MouseContext);
 
   useEffect(() => {
     setTimeout(() => setLoading(false), 500);
@@ -46,15 +44,10 @@ function App() {
         <CssBaseline />
         {loading === false ? (
           <div className="App">
-            <div
-              onMouseEnter={() => cursorChangeHandler("hovered")}
-              onMouseLeave={() => cursorChangeHandler("")}
-            >
-              <Navbar toggle={toggle} />
-              <Sidebar isopen={isopen} toggle={toggle} />
-              <NightModeIcon theme={"light"} />
-            </div>
-            <DotRing />
+            <Navbar toggle={toggle} />
+            <Sidebar isopen={isopen} toggle={toggle} />
+            <NightModeIcon theme={"light"} />
+            <Cursor />
             <Routes>
               <Route path="/" element={<Hero />} />
               <Route path="/about" element={<About />} />
