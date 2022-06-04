@@ -1,6 +1,5 @@
-import hoverEffect from "hover-effect";
 import one from "../../assets/handwriter2.webp";
-import two from "../../assets/spofity2.png";
+import two from "../../assets/spofity2.webp";
 import {
   SiRedux,
   SiMaterialui,

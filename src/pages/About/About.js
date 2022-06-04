@@ -4,7 +4,7 @@ import {
   AboutMeIllustration,
   AboutMeSection,
 } from "./AboutStyles";
-import image from "../../assets/aboutpic.png";
+import image from "../../assets/aboutpic.webp";
 import { Box, Typography } from "@mui/material";
 import { BsFillPlayFill } from "react-icons/bs";
 
