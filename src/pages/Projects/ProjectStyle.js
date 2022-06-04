@@ -1,5 +1,5 @@
 import { styled } from "@mui/material/styles";
-import { Typography, Paper, Box } from "@mui/material";
+import { Paper } from "@mui/material";
 
 export const ProjectContainer = styled("div")(({ theme }) => ({
   display: "flex",

@@ -4,7 +4,7 @@ import { MouseContext } from "../../context/mouse-context";
 import { DotDiv, RingDiv } from "./DotRingStyles";
 
 const DotRing = () => {
-  const { cursorType, cursorChangeHandler } = useContext(MouseContext);
+  const { cursorType } = useContext(MouseContext);
   const { x, y } = useMousePosition();
   return (
     <>

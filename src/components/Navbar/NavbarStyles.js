@@ -40,7 +40,6 @@ export const MobileMenuIcon = styled("div")(({ theme }) => ({
   "@media (max-width:768px)": {
     display: "block",
     color: "black",
-    display: "flex",
     alignItems: "center",
     fontSize: "4vh",
     cursor: "pointer",

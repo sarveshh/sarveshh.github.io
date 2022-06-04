@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect } from "react";
 import { ProjectContainer, ProjectSection, ProjectPaper } from "./ProjectStyle";
 import { Typography, Box, Button } from "@mui/material";
 import { ProjectsData } from "./ProjectsData";

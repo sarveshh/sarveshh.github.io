@@ -8,7 +8,7 @@ const CharacterSVG = (props) => {
       nullTargetWarn: false,
       trialWarn: false,
     });
-    const meTl = gsap.timeline({
+    gsap.timeline({
       onComplete: addMouseEvent,
       delay: 1,
     });
@@ -89,7 +89,6 @@ const CharacterSVG = (props) => {
       // range from -20 to 80
       let yHigh = percentage(yPosition, height) - 20;
       // range from -80 to 20f
-      let yLow = percentage(yPosition, height) - 80;
 
       gsap.to(dom.eye, {
         yPercent: yHigh / 3,

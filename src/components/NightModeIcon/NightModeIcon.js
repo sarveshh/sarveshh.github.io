@@ -1,7 +1,6 @@
 import React from "react";
 import { MdLightMode, MdDarkMode } from "react-icons/md";
 import { IconContext } from "react-icons/lib";
-import { Box } from "@mui/material";
 import { toggleMode } from "../../store/nightmodeSlice";
 import { useDispatch } from "react-redux";
 import { styled } from "@mui/material/styles";

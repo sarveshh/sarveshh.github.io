@@ -10,7 +10,7 @@ import Projects from "./pages/Projects/Projects";
 import Resume from "./pages/Resume/Resume";
 import DotRing from "./components/DotRing/DotRing";
 import { MouseContext } from "./context/mouse-context";
-import { createTheme, colors, ThemeProvider, Button } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material";
 import { CssBaseline } from "@mui/material";
 import NightModeIcon from "./components/NightModeIcon/NightModeIcon";
 import { useSelector } from "react-redux";
@@ -29,7 +29,7 @@ function App() {
     },
   });
   const [loading, setLoading] = useState(true);
-  const { cursorType, cursorChangeHandler } = useContext(MouseContext);
+  const { cursorChangeHandler } = useContext(MouseContext);
 
   useEffect(() => {
     setTimeout(() => setLoading(false), 500);
