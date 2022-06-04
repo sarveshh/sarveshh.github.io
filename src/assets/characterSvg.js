@@ -1,7 +1,128 @@
-import * as React from "react";
-import { useState } from "react";
+import React, { useEffect } from "react";
+import { gsap } from "gsap";
 
 const CharacterSVG = (props) => {
+  useEffect(() => {
+    const meTl = gsap.timeline({
+      onComplete: addMouseEvent,
+      delay: 1,
+    });
+
+    const blink = gsap.timeline({
+      repeatDelay: 15,
+      paused: true,
+    });
+
+    blink
+      .to(
+        ".eye-right, .eye-left",
+        {
+          duration: 0.01,
+          opacity: 0,
+        },
+        0
+      )
+      .to(
+        ".eye-right-2, .eye-left-2",
+        {
+          duration: 0.01,
+          opacity: 1,
+        },
+        0
+      )
+      .to(
+        ".eye-right, .eye-left",
+        {
+          duration: 0.01,
+          opacity: 1,
+        },
+        0.15
+      )
+      .to(
+        ".eye-right-2 , .eye-left-2",
+        {
+          duration: 0.01,
+          opacity: 0,
+        },
+        0.15
+      );
+
+    let xPosition;
+    let yPosition;
+
+    let height;
+    let width;
+
+    function percentage(partialValue, totalValue) {
+      return (100 * partialValue) / totalValue;
+    }
+
+    function updateScreenCoords(event) {
+      xPosition = event.clientX;
+      yPosition = event.clientY;
+    }
+
+    let storedXPosition = 0;
+    let storedYPosition = 0;
+
+    // gsap can use queryselector in the quick setter but this is better for performance as it touches the DOM less
+    const dom = {
+      eye: document.querySelectorAll(".eye"),
+      innerFace: document.querySelector(".inner-face"),
+    };
+
+    function animateFace() {
+      if (!xPosition) return;
+      // important, only recalculating if the value changes
+      if (storedXPosition === xPosition && storedYPosition === yPosition)
+        return;
+
+      // range from -50 to 50
+      let x = percentage(xPosition, width) - 50;
+      let y = percentage(yPosition, height) - 50;
+
+      // range from -20 to 80
+      let yHigh = percentage(yPosition, height) - 20;
+      // range from -80 to 20f
+      let yLow = percentage(yPosition, height) - 80;
+
+      gsap.to(dom.eye, {
+        yPercent: yHigh / 3,
+        xPercent: x / 2,
+      });
+      gsap.to(dom.innerFace, {
+        yPercent: y / 6,
+        xPercent: x / 8,
+      });
+      storedXPosition = xPosition;
+      storedYPosition = yPosition;
+    }
+
+    // function being called at the end of main timeline
+    function addMouseEvent() {
+      const safeToAnimate = window.matchMedia(
+        "(prefers-reduced-motion: no-preference)"
+      ).matches;
+
+      if (safeToAnimate) {
+        window.addEventListener("mousemove", updateScreenCoords);
+
+        // gsap's RAF, falls back to set timeout
+        gsap.ticker.add(animateFace);
+
+        blink.play();
+      }
+    }
+
+    // update if browser resizes
+    function updateWindowSize() {
+      height = window.innerHeight;
+      width = window.innerWidth;
+    }
+    updateWindowSize();
+    window.addEventListener("resize", updateWindowSize);
+  }, []);
+
   return (
     <svg
       id="Layer_1"
