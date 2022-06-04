@@ -12,6 +12,7 @@ import DotRing from "./components/DotRing/DotRing";
 import { MouseContext } from "./context/mouse-context";
 import { createTheme, colors, ThemeProvider, Button } from "@mui/material";
 import { CssBaseline } from "@mui/material";
+import NightModeIcon from "./components/NightModeIcon/NightModeIcon";
 
 function App() {
   const [themepalette, setThemePalette] = useState("light");
@@ -28,6 +29,9 @@ function App() {
     },
     palette: {
       mode: themepalette,
+      background: {
+        // default: themepalette === "light" ? "#fafafa" : "#1a1a1a",
+      },
     },
   });
   const [loading, setLoading] = useState(true);
@@ -53,9 +57,9 @@ function App() {
               onMouseLeave={() => cursorChangeHandler("")}
             >
               <Navbar toggle={toggle} />
-              <button onClick={themeChangeHandler}>Click</button>
+              <Sidebar isopen={isopen} toggle={toggle} />
+              <NightModeIcon theme={themepalette} />
             </div>
-            <Sidebar isopen={isopen} toggle={toggle} />
             <DotRing />
             <Routes>
               <Route path="/" element={<Hero />} />
