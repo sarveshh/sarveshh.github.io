@@ -24,13 +24,22 @@ function App() {
       mode: themeValue,
       background: {
         default: themeValue === "light" ? "#fafafa" : "#1a1a1a",
-        navbar: themeValue === "light" ? "white" : "#232323",
+        navbar: themeValue === "light" ? "white" : "rgba(42,43,56,.5)",
       },
       textColor: {
         default: themeValue === "light" ? "black" : "white",
       },
       typewriter: {
         shadow: themeValue === "light" ? "0 0 0.5rem #000" : "0 0 0.5rem grey",
+      },
+      projectSection: {
+        numbers: themeValue === "light" ? "black" : "white",
+        title: themeValue === "light" ? "black" : "white",
+        description: themeValue === "light" ? "black" : "white",
+        icons: themeValue === "light" ? "black" : "white",
+      },
+      buttonColors: {
+        default: themeValue === "light" ? "black" : "white",
       },
     },
   });

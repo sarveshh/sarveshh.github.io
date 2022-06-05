@@ -50,7 +50,7 @@ const Contact = () => {
         <Box display="flex" justifyContent="space-between" marginTop="15px">
           <MapContainer />
           <Box display="flex" flexDirection="column">
-            <Typography variant="h3" color="#808080" marginLeft="30px">
+            <Typography variant="h3" color="#c4c4c4" marginLeft="30px">
               Hey, Don't be a stranger
             </Typography>
             <br />

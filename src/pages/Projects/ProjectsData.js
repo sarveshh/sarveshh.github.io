@@ -16,7 +16,8 @@ export const ProjectsData = [
   {
     id: 1,
     title: "Spofity",
-    description: "Your Spotify Supercharged. Seriously",
+    description:
+      "Your Spotify Supercharged. Seriously. Powered by the official Spotify API. ",
     img: one,
     img2: two,
     distort: two,
@@ -36,7 +37,7 @@ export const ProjectsData = [
   {
     id: 2,
     title: "Walletnode",
-    description: "Keep track of your expenses. Seamlessly",
+    description: "Keep track of your expenses. Seamlessly.",
     img: one,
     img2: two,
     distort: two,
@@ -58,7 +59,7 @@ export const ProjectsData = [
     id: 3,
     title: "Handwriterr",
     description:
-      "Computerised text to your custom handwriting style with multilingual Optical CHaracter Recognition",
+      "Computerised text to your custom handwriting style with multilingual Optical Character Recognition",
     img: one,
     img2: two,
     distort: two,
