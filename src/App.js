@@ -9,7 +9,7 @@ import Contact from "./pages/Contact/Contact";
 import Projects from "./pages/Projects/Projects";
 import Resume from "./pages/Resume/Resume";
 import { createTheme, ThemeProvider } from "@mui/material";
-import { CssBaseline } from "@mui/material";
+import { CssBaseline, Box } from "@mui/material";
 import NightModeIcon from "./components/NightModeIcon/NightModeIcon";
 import Cursor from "./components/Cursor/Cursor";
 import { useSelector } from "react-redux";
@@ -59,7 +59,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         {loading === false ? (
-          <div className="App">
+          <Box className="App">
             <Cursor />
             <Navbar toggle={toggle} />
             <Sidebar isopen={isopen} toggle={toggle} />
@@ -71,11 +71,11 @@ function App() {
               <Route path="/projects" element={<Projects />} />
               <Route path="/resume" element={<Resume />} />
             </Routes>
-          </div>
+          </Box>
         ) : (
-          <div>
+          <Box>
             <SVGComponent />
-          </div>
+          </Box>
         )}
       </ThemeProvider>
     </>

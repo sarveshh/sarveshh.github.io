@@ -65,7 +65,7 @@ const Contact = () => {
             </Typography>
             <Box display="flex" justifyContent="center" margin="15px">
               {contactData.map((data) => (
-                <>
+                <Box key={data.link}>
                   <a href={data.link} target="_blank" rel="noopener noreferrer">
                     <IconContext.Provider
                       value={{
@@ -80,7 +80,7 @@ const Contact = () => {
                       {data.icon}
                     </IconContext.Provider>
                   </a>
-                </>
+                </Box>
               ))}
             </Box>
           </Box>

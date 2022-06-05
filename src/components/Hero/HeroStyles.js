@@ -16,6 +16,9 @@ export const LetterAnimate = styled("span")(({ theme }) => ({
   "&:hover": {
     color: "red",
   },
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "5rem",
+  },
 }));
 
 export const TypewriterComponent = styled("div")(({ theme }) => ({

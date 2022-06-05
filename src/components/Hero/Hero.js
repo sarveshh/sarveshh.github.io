@@ -55,15 +55,14 @@ const Hero = () => {
                   .deleteChars(23)
                   .pauseFor(500)
                   .deleteAll()
-                  .callFunction(() => {
-                    console.log("All strings were deleted");
-                  })
                   .start();
               }}
             />
           </TypewriterComponent>
         </Box>
-        <CharacterSVG />
+        <Box sx={{ display: { xs: "none", sm: "none", md: "block" } }}>
+          <CharacterSVG />
+        </Box>
       </HeroContainer>
     </>
   );
