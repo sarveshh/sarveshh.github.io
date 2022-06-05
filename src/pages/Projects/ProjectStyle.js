@@ -13,6 +13,15 @@ export const ProjectPaper = styled(Paper)(({ theme }) => ({
   background: "linear-gradient(180deg,rgba(35,37,49,.5),rgba(15,15,24,.5))",
   border: "0.2rem solid #20222e",
   backdropFilter: "blur(54px)",
+
+  [theme.breakpoints.down("md")]: {
+    maxWidth: "90vw",
+    width: "75vw",
+    height: "35vh",
+    padding: "5px",
+    borderRadius: "2rem",
+    display: "inline-block",
+  },
 }));
 
 export const ParentProjectBox = styled(Box)(({ theme }) => ({
@@ -50,4 +59,8 @@ export const ProjectInfoDataBox = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-between",
+
+  [theme.breakpoints.down("md")]: {
+    margin: "10px 10px",
+  },
 }));

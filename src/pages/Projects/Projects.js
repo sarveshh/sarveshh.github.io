@@ -39,7 +39,13 @@ const Projects = () => {
 
   return (
     <>
-      <Typography variant="h2" color="#6D83F2" sx={{ margin: "30px 100px" }}>
+      <Typography
+        color="#6D83F2"
+        sx={{
+          margin: "30px 100px",
+          typography: { sm: "h3", xs: "h4", md: "h2" },
+        }}
+      >
         Projects
       </Typography>
       <ProjectContainer>
@@ -55,21 +61,31 @@ const Projects = () => {
               </Box>
               <ProjectPaper elevation={5}>
                 <Box display="flex">
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Box
+                    sx={{ display: { xs: "none", sm: "none", md: "block" } }}
                   >
-                    <ProjectImageLinkBox
-                      className="wrapper"
-                      ref={wrappers.current[project.id - 1]}
-                    />
-                  </a>
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ProjectImageLinkBox
+                        className="wrapper"
+                        ref={wrappers.current[project.id - 1]}
+                      />
+                    </a>
+                  </Box>
                   <ProjectInfoDataBox>
                     <Typography
-                      variant="h3"
-                      marginBottom="20px"
-                      sx={{ color: "projectSection.title" }}
+                      sx={{
+                        margin: {
+                          md: "30px 100px",
+                          sm: "5px 10px",
+                          xs: "5px 5px",
+                        },
+                        color: "projectSection.title",
+                        typography: { sm: "h2", xs: "h3", md: "h3" },
+                      }}
                     >
                       {project.title}
                     </Typography>
@@ -98,7 +114,13 @@ const Projects = () => {
                               TransitionComponent={Fade}
                               TransitionProps={{ timeout: 600 }}
                             >
-                              <Box sx={{ color: "projectSection.icons" }}>
+                              <Box
+                                sx={{
+                                  color: "projectSection.icons",
+                                  width: { md: "35px", sm: "25px", xs: "20px" },
+                                  marginRight: { md: "15px", xs: "20px" },
+                                }}
+                              >
                                 {techs.icon}
                               </Box>
                             </Tooltip>
