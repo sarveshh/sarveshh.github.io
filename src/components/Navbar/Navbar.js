@@ -18,7 +18,7 @@ const Navbar = ({ toggle }) => {
   return (
     <Nav navbar={navbar.toString()}>
       <Link to="/">
-        <LogoSvg />
+        <LogoSvg width="15%" />
       </Link>
       <NavMenu>
         {navbarItems.map((item, index) => (
