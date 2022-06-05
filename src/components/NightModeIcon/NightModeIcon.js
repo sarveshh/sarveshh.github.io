@@ -4,6 +4,7 @@ import { IconContext } from "react-icons/lib";
 import { toggleMode } from "../../store/nightmodeSlice";
 import { useDispatch } from "react-redux";
 import { styled } from "@mui/material/styles";
+import { useSelector } from "react-redux";
 
 const NightModeContainer = styled("nav")(({ theme }) => ({
   zIndex: "10000",
@@ -12,11 +13,12 @@ const NightModeContainer = styled("nav")(({ theme }) => ({
   left: "4vw",
 }));
 
-const NightModeIcon = (theme) => {
+const NightModeIcon = () => {
   const dispatch = useDispatch();
   const themeChangeHandler = () => {
     dispatch(toggleMode());
   };
+  const themeValue = useSelector((state) => state.nightmode.darkmode);
 
   return (
     <>
@@ -30,10 +32,11 @@ const NightModeIcon = (theme) => {
               borderRadius: "50%",
               border: "1px solid grey",
               padding: "5px",
+              color: themeValue === "light" ? "#000" : "#fff",
             },
           }}
         >
-          {theme === "light" ? <MdDarkMode /> : <MdLightMode />}
+          {themeValue === "light" ? <MdDarkMode /> : <MdLightMode />}
         </IconContext.Provider>
       </NightModeContainer>
     </>

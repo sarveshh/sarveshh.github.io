@@ -9,13 +9,14 @@ export const Nav = styled("nav")(({ theme, navbar }) => ({
   zIndex: 100,
   position: "relative",
   width: "100%",
-  background: navbar === "true" ? "red" : "transparent",
+  // background: navbar === "true" ? "red" : "transparent",
+  background: theme.palette.background.navbar,
 }));
 
 export const Link = styled(NavLink)(({ theme }) => ({
   textDecoration: "none",
   display: "flex",
-  color: "black",
+  color: theme.palette.textColor.default,
   alignItems: "center",
   padding: "0 1rem",
   height: "100%",

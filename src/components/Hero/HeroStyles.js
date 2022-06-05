@@ -8,6 +8,7 @@ export const HeroContainer = styled("div")(({ theme }) => ({
   justifyContent: "space-between",
   padding: "7vw",
   alignItems: "center",
+  background: theme.palette.background.default,
 }));
 
 export const LetterAnimate = styled("span")(({ theme }) => ({
@@ -23,6 +24,6 @@ export const TypewriterComponent = styled("div")(({ theme }) => ({
   fontWeight: "bold",
   color: "#fff",
   overflow: "hidden",
-  textShadow: "0 0 0.5rem #000",
+  textShadow: `${theme.palette.typewriter.shadow}`,
   animation: "typewriter 1s steps(30) 1s 1 normal both",
 }));

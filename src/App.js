@@ -23,7 +23,14 @@ function App() {
     palette: {
       mode: themeValue,
       background: {
-        // default: themepalette === "light" ? "#fafafa" : "#1a1a1a",
+        default: themeValue === "light" ? "#fafafa" : "#1a1a1a",
+        navbar: themeValue === "light" ? "white" : "#232323",
+      },
+      textColor: {
+        default: themeValue === "light" ? "black" : "white",
+      },
+      typewriter: {
+        shadow: themeValue === "light" ? "0 0 0.5rem #000" : "0 0 0.5rem grey",
       },
     },
   });
