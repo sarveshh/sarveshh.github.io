@@ -2,13 +2,7 @@ import React from "react";
 import { MapContainer } from "./MapContainer";
 import { Box, Typography } from "@mui/material";
 import { ContactContainer } from "./ContactStyles";
-import {
-  SiGmail,
-  SiGithub,
-  SiLinkedin,
-  SiInstagram,
-  SiCodepen,
-} from "react-icons/si";
+import { SiGmail, SiGithub, SiLinkedin, SiCodepen } from "react-icons/si";
 import { FaDev } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
 import { useSelector } from "react-redux";
@@ -22,11 +16,7 @@ const Contact = () => {
       icon: <SiLinkedin />,
       link: "https://www.linkedin.com/in/sarveshp273  ",
     },
-    {
-      name: "Instagram",
-      icon: <SiInstagram />,
-      link: "https://www.instagram.com/sarvastic_af/",
-    },
+
     {
       name: "Codepen",
       icon: <SiCodepen />,
@@ -44,11 +34,22 @@ const Contact = () => {
   return (
     <>
       <ContactContainer>
-        <Typography variant="h2" color="#6D83F2">
+        <Typography
+          sx={{ typography: { sm: "h3", xs: "h4", md: "h2" } }}
+          color="#6D83F2"
+        >
           Contact
         </Typography>
-        <Box display="flex" justifyContent="space-between" marginTop="15px">
-          <MapContainer />
+        <Box
+          display="flex"
+          marginTop="15px"
+          sx={{
+            justifyContent: { xs: "center", sm: "center", md: "space-between" },
+          }}
+        >
+          <Box sx={{ display: { xs: "none", sm: "none", md: "block" } }}>
+            <MapContainer />
+          </Box>
           <Box display="flex" flexDirection="column">
             <Typography variant="h3" color="#c4c4c4" marginLeft="30px">
               Hey, Don't be a stranger

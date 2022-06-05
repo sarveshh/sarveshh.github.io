@@ -4,4 +4,8 @@ export const ContactContainer = styled("div")(({ theme }) => ({
   display: "flex",
   margin: "30px 100px",
   flexDirection: "column",
+
+  [theme.breakpoints.down("md")]: {
+    height: "300px",
+  },
 }));
