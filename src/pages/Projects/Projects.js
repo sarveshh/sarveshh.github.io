@@ -14,6 +14,7 @@ import hoverEffect from "hover-effect";
 import { IconContext } from "react-icons/lib";
 import { BsGithub } from "react-icons/bs";
 import { MdWeb } from "react-icons/md";
+import { useSelector } from "react-redux";
 
 const Projects = () => {
   let wrappers = useRef({});
@@ -33,6 +34,8 @@ const Projects = () => {
         })
     );
   }, []);
+
+  const themeValue = useSelector((state) => state.nightmode.darkmode);
 
   return (
     <>
@@ -79,7 +82,7 @@ const Projects = () => {
                     </Typography>
                     <Box display="flex">
                       {project.tech.map((techs) => (
-                        <>
+                        <Box key={techs.name}>
                           <IconContext.Provider
                             value={{
                               style: {
@@ -100,33 +103,37 @@ const Projects = () => {
                               </Box>
                             </Tooltip>
                           </IconContext.Provider>
-                        </>
+                        </Box>
                       ))}
                     </Box>
                     <Box display="flex">
-                      <a
+                      <Button
+                        variant={
+                          themeValue === "light" ? "contained" : "outlined"
+                        }
+                        startIcon={<BsGithub />}
+                        component="a"
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        style={{
-                          textDecoration: "none",
-                          marginRight: "20px",
-                        }}
+                        sx={{ marginRight: "15px" }}
+                        color="primary"
                       >
-                        <Button variant="outlined" startIcon={<BsGithub />}>
-                          GitHub
-                        </Button>
-                      </a>
-                      <a
+                        GitHub
+                      </Button>
+                      <Button
+                        variant={
+                          themeValue === "light" ? "contained" : "outlined"
+                        }
+                        startIcon={<MdWeb />}
+                        component="a"
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        style={{ textDecoration: "none", marginRight: "20px" }}
+                        color="secondary"
                       >
-                        <Button variant="outlined" startIcon={<MdWeb />}>
-                          Demo
-                        </Button>
-                      </a>
+                        Demo
+                      </Button>
                     </Box>
                   </ProjectInfoDataBox>
                 </Box>
