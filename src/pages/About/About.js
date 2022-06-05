@@ -13,14 +13,20 @@ const About = () => {
     <>
       <AboutContainer>
         <AboutMeSection>
-          <Typography variant="h2" color="#6D83F2">
+          <Typography
+            sx={{ typography: { sm: "h3", xs: "h4", md: "h2" } }}
+            color="#6D83F2"
+          >
             About me
           </Typography>
+          <Box sx={{ display: { xs: "block", sm: "block", md: "none" } }}>
+            <AboutMeIllustration src={image}></AboutMeIllustration>
+          </Box>
           <Typography
             variant="inherit"
-            marginLeft="25px"
             marginTop="20px"
             color="#909090"
+            component={"span"}
           >
             Hello! I am Sarvesh, a self-taught web developer. I am ever eager
             and fascinated to learn about new technologies. Among all of them,
@@ -61,7 +67,9 @@ const About = () => {
             </Box>
           </Typography>
         </AboutMeSection>
-        <AboutMeIllustration src={image} height="500px"></AboutMeIllustration>
+        <Box sx={{ display: { xs: "none", sm: "none", md: "block" } }}>
+          <AboutMeIllustration src={image}></AboutMeIllustration>
+        </Box>
       </AboutContainer>
     </>
   );

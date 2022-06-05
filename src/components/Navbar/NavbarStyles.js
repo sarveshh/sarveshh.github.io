@@ -7,7 +7,7 @@ export const Nav = styled("nav")(({ theme, navbar }) => ({
   padding: "1rem 2rem",
   zIndex: 100,
   position: "relative",
-  width: "100%",
+  width: "100vw",
   // background: navbar === "true" ? "red" : "transparent",
   background: theme.palette.background.navbar,
 }));

@@ -9,8 +9,16 @@ export const AboutContainer = styled("div")(({ theme }) => ({
 
 export const AboutMeSection = styled("div")(({ theme }) => ({
   paddingRight: "60px",
+  [theme.breakpoints.down("md")]: {
+    paddingRight: "0px",
+  },
   textAlign: "justify",
   textJustify: "inter-word",
 }));
 
-export const AboutMeIllustration = styled("img")(({ theme }) => ({}));
+export const AboutMeIllustration = styled("img")(({ theme }) => ({
+  height: "500px",
+  [theme.breakpoints.down("md")]: {
+    height: "300px",
+  },
+}));
