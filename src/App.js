@@ -9,10 +9,11 @@ import Contact from "./pages/Contact/Contact";
 import Projects from "./pages/Projects/Projects";
 import Resume from "./pages/Resume/Resume";
 import { createTheme, ThemeProvider } from "@mui/material";
-import { CssBaseline, Box } from "@mui/material";
+import { CssBaseline, Box, Alert, IconButton, AlertTitle } from "@mui/material";
 import NightModeIcon from "./components/NightModeIcon/NightModeIcon";
 import Cursor from "./components/Cursor/Cursor";
 import { useSelector } from "react-redux";
+import { GrClose } from "react-icons/gr";
 
 function App() {
   const themeValue = useSelector((state) => state.nightmode.darkmode);
@@ -45,9 +46,10 @@ function App() {
     },
   });
   const [loading, setLoading] = useState(true);
+  const [open, setOpen] = React.useState(true);
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 500);
+    setTimeout(() => setLoading(false), 50);
   }, []);
 
   const [isopen, setisopen] = useState(false);
@@ -61,6 +63,35 @@ function App() {
         <CssBaseline />
         {loading === false ? (
           <Box className="App">
+            {open ? (
+              <Box>
+                <Alert
+                  severity="info"
+                  sx={{
+                    display: { sm: "block", xs: "block", md: "none" },
+                    position: { sm: "fixed", xs: "fixed" },
+                    top: { sm: "65vh", xs: "65vh" },
+                    zIndex: { sm: "10000", xs: "10000" },
+                    width: { sm: "100%", xs: "100%" },
+                  }}
+                  action={
+                    <IconButton
+                      aria-label="close"
+                      color="inherit"
+                      size="small"
+                      onClick={() => {
+                        setOpen(false);
+                      }}
+                    >
+                      <GrClose />
+                    </IconButton>
+                  }
+                >
+                  <AlertTitle>Info</AlertTitle>
+                  This portfolio is at its best on <strong>desktop.</strong>
+                </Alert>
+              </Box>
+            ) : null}
             <Cursor />
             <Navbar toggle={toggle} />
             <Sidebar isopen={isopen} toggle={toggle} />
