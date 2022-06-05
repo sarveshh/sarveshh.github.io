@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from "google-maps-react";
+import { Box, Typography } from "@mui/material";
 
 const mapStyles = {
-  width: "45vw",
-  height: "60vh",
+  width: "40vw",
+  height: "55vh",
 };
 
 export class MapContainer extends Component {
@@ -40,8 +41,8 @@ export class MapContainer extends Component {
           lng: 72.8777,
         }}
         containerStyle={{
-          height: "60vh",
-          width: "45vw",
+          height: "55vh",
+          width: "40vw",
           position: "relative",
         }}
       >
@@ -54,9 +55,11 @@ export class MapContainer extends Component {
           visible={this.state.showingInfoWindow}
           onClose={this.onClose}
         >
-          <div>
-            <h4>{this.state.selectedPlace.name}</h4>
-          </div>
+          <Box>
+            <Typography variant="h4">
+              {this.state.selectedPlace.name}
+            </Typography>
+          </Box>
         </InfoWindow>
       </Map>
     );

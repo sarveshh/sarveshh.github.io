@@ -63,9 +63,7 @@ const Hero = () => {
             />
           </TypewriterComponent>
         </Box>
-        <Box>
-          <CharacterSVG />
-        </Box>
+        <CharacterSVG />
       </HeroContainer>
     </>
   );

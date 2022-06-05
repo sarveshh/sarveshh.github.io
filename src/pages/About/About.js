@@ -13,10 +13,15 @@ const About = () => {
     <>
       <AboutContainer>
         <AboutMeSection>
-          <Typography variant="h2" color="#808080">
+          <Typography variant="h2" color="#6D83F2">
             About me
           </Typography>
-          <Typography variant="inherit" marginLeft="25px" marginTop="20px">
+          <Typography
+            variant="inherit"
+            marginLeft="25px"
+            marginTop="20px"
+            color="#909090"
+          >
             Hello! I am Sarvesh, a self-taught web developer. I am ever eager
             and fascinated to learn about new technologies. Among all of them,
             Web Development never fails to excite me. You can say it's my niche.

@@ -23,7 +23,7 @@ export const Link = styled(NavLink)(({ theme }) => ({
   cursor: "pointer",
 
   "&.active": {
-    color: "red",
+    color: "#6D83F2",
   },
 }));
 
@@ -40,7 +40,7 @@ export const MobileMenuIcon = styled("div")(({ theme }) => ({
 
   "@media (max-width:768px)": {
     display: "block",
-    color: "black",
+    color: theme.palette.textColor.default,
     alignItems: "center",
     fontSize: "4vh",
     cursor: "pointer",

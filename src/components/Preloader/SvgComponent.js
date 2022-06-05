@@ -1,164 +1,78 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { Box } from "@mui/material";
+import * as React from "react";
 
-const draw = {
-  hidden: { pathLength: 0, opacity: 0 },
-  visible: (i) => {
-    const delay = i * 0.5;
-    return {
-      pathLength: 1,
-      opacity: 1,
-      transition: {
-        pathLength: { delay, type: "spring", duration: 1.5, bounce: 0 },
-        opacity: { delay, duration: 0.01 },
-      },
-    };
-  },
-};
-
-const SVGComponent = (props) => {
-  return (
-    <>
-      <Box sx={{ backgroundColor: "#0a192f" }}>
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{
-            duration: 1,
-            repeat: Infinity,
-          }}
-        >
-          <motion.svg
-            viewBox="0 0 500 500"
-            initial="hidden"
-            animate="visible"
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              height: "100vh",
-              width: "100vw",
-            }}
-            {...props}
-          >
-            <defs>
-              <linearGradient
-                gradientUnits="userSpaceOnUse"
-                x1={154.022}
-                y1={110.857}
-                x2={154.022}
-                y2={149.021}
-                id="gradient-0"
-              >
-                <stop
-                  offset={0}
-                  style={{
-                    stopColor: "rgba(216, 216, 216, 1)",
-                  }}
-                />
-                <stop
-                  offset={1}
-                  style={{
-                    stopColor: "rgba(165, 165, 165, 1)",
-                  }}
-                />
-              </linearGradient>
-            </defs>
-            <motion.path
-              d="M 116.283 85.598 L 135.26 115.067 L 97.305 115.067 L 116.283 85.598 Z"
-              style={{
-                stroke: "rgb(0, 0, 0)",
-                filter: "none",
-                fillRule: "nonzero",
-                fill: "rgb(66, 133, 244)",
-              }}
-              variants={draw}
-              custom={1}
-              transform="matrix(0, 1, -1, 0, 368.899017, 70.097237)"
-              className={"t1"}
-            />
-            <motion.path
-              variants={draw}
-              custom={1}
-              d="M 116.283 85.598 L 135.26 115.067 L 97.305 115.067 L 116.283 85.598 Z"
-              style={{
-                stroke: "rgb(0, 0, 0)",
-                fill: "rgb(219, 68, 55)",
-              }}
-              transform="matrix(0, -1, 1, 0, 138.083588, 302.70932)"
-              className="t2"
-            />
-            <motion.path
-              variants={draw}
-              custom={1}
-              d="M 116.283 85.598 L 135.26 115.067 L 97.305 115.067 L 116.283 85.598 Z"
-              style={{
-                stroke: "rgb(0, 0, 0)",
-                fill: "rgb(244, 180, 0)",
-              }}
-              transform="matrix(0, 1, -1, 0, 338.434113, 89.178238)"
-              className="t3"
-            />
-            <motion.path
-              variants={draw}
-              custom={1}
-              d="M 116.283 85.598 L 135.26 115.067 L 97.305 115.067 L 116.283 85.598 Z"
-              style={{
-                stroke: "rgb(0, 0, 0)",
-                fill: "rgb(15, 157, 88)",
-              }}
-              transform="matrix(0, -1, 1, 0, 138.05719, 341.116547)"
-              className="t4"
-            />
-            <motion.path
-              variants={draw}
-              custom={1}
-              d="M 116.283 85.598 L 135.26 115.067 L 97.305 115.067 L 116.283 85.598 Z"
-              style={{
-                stroke: "rgb(0, 0, 0)",
-                fill: "rgb(15, 157, 88)",
-              }}
-              transform="matrix(0, 1, -1, 0, 368.956879, 108.284836)"
-              className="t5"
-            />
-            <motion.path
-              variants={draw}
-              custom={1}
-              d="M 116.283 85.598 L 135.26 115.067 L 97.305 115.067 L 116.283 85.598 Z"
-              style={{
-                stroke: "rgb(0, 0, 0)",
-                fill: "rgb(244, 180, 0)",
-              }}
-              transform="matrix(0, -1, 1, 0, 168.087982, 360.643738)"
-              className="t6"
-            />
-            <motion.path
-              variants={draw}
-              custom={1}
-              d="M 116.283 85.598 L 135.26 115.067 L 97.305 115.067 L 116.283 85.598 Z"
-              style={{
-                stroke: "rgb(0, 0, 0)",
-                fill: "rgb(219, 68, 55)",
-              }}
-              transform="matrix(0, 1, -1, 0, 368.950378, 147.31427)"
-              className="t7"
-            />
-            <motion.path
-              variants={draw}
-              custom={1}
-              d="M 116.283 85.598 L 135.26 115.067 L 97.305 115.067 L 116.283 85.598 Z"
-              style={{
-                stroke: "rgb(0, 0, 0)",
-                fill: "rgb(66, 133, 244)",
-              }}
-              transform="matrix(0, -1, 1, 0, 138.182938, 379.919983)"
-              className="t8"
-            />
-          </motion.svg>
-        </motion.div>
-      </Box>
-    </>
-  );
-};
+const SVGComponent = (props) => (
+  <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <path
+      d="M 298.93 59.31 L 356.234 165.52 L 241.626 165.52 L 298.93 59.31 Z"
+      style={{
+        fill: "rgb(66, 133, 244)",
+      }}
+      transform="matrix(0, 1, -1, 0, 411.345013, -186.515003)"
+    />
+    <path
+      d="M 358.118 165.863 L 240.612 165.863 L 299.365 56.967 Z M 243.509 164.046 L 355.221 164.046 L 299.365 60.522 Z"
+      style={{
+        fill: "rgba(0, 0, 0, 0.59)",
+      }}
+      transform="matrix(0, 1, -1, 0, 410.78001, -187.950001)"
+    />
+    <path
+      d="M 192.72 58.453 L 250.025 164.662 L 135.415 164.662 L 192.72 58.453 Z"
+      style={{
+        stroke: "rgb(0, 0, 0)",
+        fill: "rgb(219, 68, 55)",
+      }}
+      transform="matrix(0, -1, 1, 0, 81.162495, 304.277493)"
+    />
+    <path
+      d="M 191.63 115.895 L 248.936 222.106 L 134.326 222.106 L 191.63 115.895 Z"
+      style={{
+        stroke: "rgb(0, 0, 0)",
+        fill: "rgb(244, 180, 0)",
+      }}
+      transform="matrix(0, 1, -1, 0, 360.631504, -22.630505)"
+    />
+    <path
+      d="M 192.217 172.353 L 249.521 278.563 L 134.912 278.563 L 192.217 172.353 Z"
+      style={{
+        stroke: "rgb(0, 0, 0)",
+        fill: "rgb(15, 157, 88)",
+      }}
+      transform="matrix(0, -1, 1, 0, -33.241493, 417.674492)"
+    />
+    <path
+      d="M 298.93 172.068 L 356.234 278.278 L 241.626 278.278 L 298.93 172.068 Z"
+      style={{
+        stroke: "rgb(0, 0, 0)",
+        fill: "rgb(15, 157, 88)",
+      }}
+      transform="matrix(0, 1, -1, 0, 524.103012, -73.757004)"
+    />
+    <path
+      d="M 299.04 229.086 L 356.346 335.296 L 241.736 335.296 L 299.04 229.086 Z"
+      style={{
+        stroke: "rgb(0, 0, 0)",
+        fill: "rgb(244, 180, 0)",
+      }}
+      transform="matrix(0, -1, 1, 0, 16.850006, 581.231995)"
+    />
+    <path
+      d="M 299.472 286.473 L 356.777 392.683 L 242.169 392.683 L 299.472 286.473 Z"
+      style={{
+        stroke: "rgb(0, 0, 0)",
+        fill: "rgb(219, 68, 55)",
+      }}
+      transform="matrix(0, 1, -1, 0, 639.05101, 40.104996)"
+    />
+    <path
+      d="M 193.048 286.568 L 250.352 392.778 L 135.743 392.778 L 193.048 286.568 Z"
+      style={{
+        stroke: "rgb(0, 0, 0)",
+        fill: "rgb(66, 133, 244)",
+      }}
+      transform="matrix(0, -1, 1, 0, -146.625504, 532.720505)"
+    />
+  </svg>
+);
 
 export default SVGComponent;

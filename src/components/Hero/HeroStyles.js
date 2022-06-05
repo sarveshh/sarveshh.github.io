@@ -1,7 +1,7 @@
 import { styled } from "@mui/material/styles";
 
 export const HeroContainer = styled("div")(({ theme }) => ({
-  height: "calc(100vh - 70px)",
+  height: "calc(100vh - 100px)",
   width: "100vw",
   display: "flex",
   position: "absolute",
@@ -15,7 +15,6 @@ export const LetterAnimate = styled("span")(({ theme }) => ({
   fontSize: "6rem",
   "&:hover": {
     color: "red",
-    transform: "translate(scale(1.5))",
   },
 }));
 
