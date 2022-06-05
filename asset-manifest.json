@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.js": "/static/js/main.a61078d7.js",
+    "static/media/aboutpic.webp": "/static/media/aboutpic.c009b83334426e7478dc.webp",
+    "static/media/handwriter2.webp": "/static/media/handwriter2.03abbb7151a37b248603.webp",
+    "static/media/spofity2.webp": "/static/media/spofity2.4f7c5b7a3aa198a76ec8.webp",
+    "static/media/walletnode.webp": "/static/media/walletnode.a754e0f5e538bc94ccc3.webp",
+    "static/media/markdownerr.webp": "/static/media/markdownerr.87581286bfa91d9a948f.webp",
+    "index.html": "/index.html",
+    "main.a61078d7.js.map": "/static/js/main.a61078d7.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.a61078d7.js"
+  ]
+}
