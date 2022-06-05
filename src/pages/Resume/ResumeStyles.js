@@ -5,6 +5,10 @@ export const ResumeContainer = styled(Box)(({ theme }) => ({
   display: "flex",
   width: "100%",
   justifyContent: "center",
+
+  [theme.breakpoints.down("md")]: {
+    display: "block",
+  },
 }));
 
 export const GoogleDriveButton = styled(Button)(({ theme }) => ({

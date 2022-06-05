@@ -7,9 +7,10 @@ import resume from "../../assets/resume.pdf";
 import { FaGoogleDrive } from "react-icons/fa";
 import { ImDownload } from "react-icons/im";
 import LogoSvg from "../../assets/LogoSvg";
-import { IconContext } from "react-icons";
+import { useSelector } from "react-redux";
 
 function Resume() {
+  const themeValue = useSelector((state) => state.nightmode.darkmode);
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
 
@@ -45,33 +46,17 @@ function Resume() {
         Resume
       </Typography>
       <ResumeContainer>
-        <Document
-          file={resume}
-          onLoadSuccess={onDocumentLoadSuccess}
-          error={errorContainer}
-          onLoadError={(error) =>
-            alert("Error while loading document! " + error.message)
-          }
-          onLoadProgress={({ loaded, total }) =>
-            alert("Loading a document: " + (loaded / total) * 100 + "%")
-          }
-          loading={
-            <>
-              <LogoSvg width="50%" />
-              <Typography
-                variant="h5"
-                style={{ marginTop: "10px", color: "theme.palette.textColor" }}
-              >
-                Sarvesh is thinking.....
-              </Typography>
-            </>
-          }
-          externalLinkTarget="_blank"
-        >
-          <Page
-            pageNumber={pageNumber}
+        <Box>
+          <Document
+            file={resume}
+            onLoadSuccess={onDocumentLoadSuccess}
             error={errorContainer}
-            // height="600"
+            onLoadError={(error) =>
+              alert("Error while loading document! " + error.message)
+            }
+            // onLoadProgress={({ loaded, total }) =>
+            //   alert("Loading a document: " + (loaded / total) * 100 + "%")
+            // }
             loading={
               <>
                 <LogoSvg width="50%" />
@@ -79,26 +64,64 @@ function Resume() {
                   variant="h5"
                   style={{
                     marginTop: "10px",
-                    color: "theme.palette.textColor",
+                    color: `${themeValue}` === "light" ? "black" : "white",
                   }}
                 >
                   Sarvesh is thinking.....
                 </Typography>
               </>
             }
-          />
-        </Document>
-        <Box display="flex" flexDirection="column" padding="35px">
-          <Typography variant="h6" marginLeft="15px">
-            Page {pageNumber || (numPages ? 1 : "--")} of {numPages || "--"}
-          </Typography>
+            externalLinkTarget="_blank"
+          >
+            <Page
+              pageNumber={pageNumber}
+              error={errorContainer}
+              // height="600"
+              loading={
+                <>
+                  <LogoSvg width="50%" />
+                  <Typography
+                    variant="h5"
+                    style={{
+                      marginTop: "10px",
+                      color: `${themeValue}` === "light" ? "black" : "white",
+                    }}
+                  >
+                    Sarvesh is thinking.....
+                  </Typography>
+                </>
+              }
+            />
+          </Document>
+        </Box>
+        <Box
+          display="flex"
+          sx={{ flexDirection: { md: "column", xs: "row", sm: "row" } }}
+          padding="35px"
+        >
           <Box>
-            <Button disabled={pageNumber <= 1} onClick={previousPage}>
-              Previous
-            </Button>
-            <Button disabled={pageNumber >= numPages} onClick={nextPage}>
-              Next
-            </Button>
+            <Typography
+              variant="h6"
+              marginLeft="15px"
+              style={{
+                color: `${themeValue}` === "light" ? "black" : "white",
+              }}
+            >
+              Page {pageNumber || (numPages ? 1 : "--")} of {numPages || "--"}
+            </Typography>
+            <Box
+              sx={{
+                flexDirection: { md: "column", xs: "row", sm: "row" },
+                display: { xs: "flex", sm: "block" },
+              }}
+            >
+              <Button disabled={pageNumber <= 1} onClick={previousPage}>
+                Previous
+              </Button>
+              <Button disabled={pageNumber >= numPages} onClick={nextPage}>
+                Next
+              </Button>
+            </Box>
           </Box>
           <GoogleDriveButton
             className="btn-89"

@@ -28,6 +28,7 @@ function App() {
       },
       textColor: {
         default: themeValue === "light" ? "black" : "white",
+        dynamic: themeValue === "light" ? "white" : "black",
       },
       typewriter: {
         shadow: themeValue === "light" ? "0 0 0.5rem #000" : "0 0 0.5rem grey",
