@@ -13,6 +13,7 @@ export const HeroContainer = styled("div")(({ theme }) => ({
 
 export const LetterAnimate = styled("span")(({ theme }) => ({
   fontSize: "6rem",
+  color: theme.palette.textColor.hero,
   "&:hover": {
     color: "red",
   },
