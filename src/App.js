@@ -30,7 +30,7 @@ function App() {
       textColor: {
         default: themeValue === "light" ? "black" : "white",
         dynamic: themeValue === "light" ? "white" : "black",
-        hero: themeValue === "light" ? "white" : "#808080",
+        hero: themeValue === "light" ? "black" : "#808080",
       },
       typewriter: {
         shadow: themeValue === "light" ? "0 0 0.5rem #000" : "0 0 0.5rem grey",
