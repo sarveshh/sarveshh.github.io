@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import React, { useState, useEffect, useRef } from "react";
 import { CursorDot, CursorDotOutline } from "./CursorStyles";
 
@@ -148,10 +149,10 @@ function Cursor() {
   };
 
   return (
-    <>
+    <Box sx={{ display: { xs: "none", sm: "block" } }}>
       <CursorDotOutline ref={cursorDotOutline} id="cursor-dot-outline" />
       <CursorDot ref={cursorDot} id="cursor-dot" />
-    </>
+    </Box>
   );
 }
 

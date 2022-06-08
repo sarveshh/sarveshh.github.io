@@ -1,19 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Sidebar from "./components/Sidebar/Sidebar";
 import SVGComponent from "./components/Preloader/SvgComponent";
 import Hero from "./components/Hero/Hero";
 import { Route, Routes } from "react-router-dom";
-import About from "./pages/About/About";
-import Contact from "./pages/Contact/Contact";
-import Projects from "./pages/Projects/Projects";
-import Resume from "./pages/Resume/Resume";
+
 import { createTheme, ThemeProvider } from "@mui/material";
 import { CssBaseline, Box, Alert, IconButton, AlertTitle } from "@mui/material";
 import NightModeIcon from "./components/NightModeIcon/NightModeIcon";
 import Cursor from "./components/Cursor/Cursor";
 import { useSelector } from "react-redux";
 import { GrClose } from "react-icons/gr";
+
+const Contact = React.lazy(() => import("./pages/Contact/Contact"));
+const Projects = React.lazy(() => import("./pages/Projects/Projects"));
+const Resume = React.lazy(() => import("./pages/Resume/Resume"));
+const About = React.lazy(() => import("./pages/About/About"));
 
 function App() {
   const themeValue = useSelector((state) => state.nightmode.darkmode);
@@ -97,13 +99,15 @@ function App() {
             <Navbar toggle={toggle} />
             <Sidebar isopen={isopen} toggle={toggle} />
             <NightModeIcon theme={"light"} />
-            <Routes>
-              <Route path="/" element={<Hero />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/resume" element={<Resume />} />
-            </Routes>
+            <Suspense fallback={<div>Page loading...</div>}>
+              <Routes>
+                <Route path="/" element={<Hero />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/resume" element={<Resume />} />
+              </Routes>
+            </Suspense>
           </Box>
         ) : (
           <Box>
